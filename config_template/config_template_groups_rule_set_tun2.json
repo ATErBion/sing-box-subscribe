@@ -97,19 +97,6 @@
       "outbounds":[
         "auto",
         "direct",
-        "🇭🇰HongKong",
-        "🇹🇼TaiWan",
-        "🇸🇬Singapore",
-        "🇯🇵Japan",
-        "🇺🇸USA",
-        "🗺️Others",
-        "🌐所有"
-      ]
-    },
-    {
-      "tag":"🌐所有",
-      "type":"selector",
-      "outbounds":[
         "{all}"
       ]
     },
