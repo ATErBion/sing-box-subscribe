@@ -130,7 +130,7 @@
       "tag":"Google",
       "type":"selector",
       "outbounds":[
-        "SendToChina"
+        "SendToChina",
         "HongKong",
         "TaiWan",
         "Singapore",
