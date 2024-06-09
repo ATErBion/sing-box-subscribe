@@ -308,7 +308,7 @@
     },
     {
       "tag":"HongKong",
-      "type":"urltestr",
+      "type":"urltest",
       "outbounds":[
         "{all}"
       ],
@@ -321,7 +321,7 @@
     },
     {
       "tag":"TaiWan",
-      "type":"urltestr",
+      "type":"urltest",
       "outbounds":[
         "{all}"
       ],
@@ -334,7 +334,7 @@
     },
     {
       "tag":"Singapore",
-      "type":"urltestr",
+      "type":"urltest",
       "outbounds":[
         "{all}"
       ],
@@ -347,7 +347,7 @@
     },
     {
       "tag":"Japan",
-      "type":"urltestr",
+      "type":"urltest",
       "outbounds":[
         "{all}"
       ],
@@ -360,7 +360,7 @@
     },
     {
       "tag":"America",
-      "type":"urltestr",
+      "type":"urltest",
       "outbounds":[
         "{all}"
       ],
@@ -373,7 +373,7 @@
     },
     {
       "tag":"Others",
-      "type":"urltestr",
+      "type":"urltest",
       "outbounds":[
         "{all}"
       ],
