@@ -298,7 +298,7 @@
       ]
     },
     {
-      "tag":"China",
+      "tag":"🇨🇳China",
       "type":"selector",
       "outbounds":[
         "direct",
@@ -555,7 +555,7 @@
       },
       {
         "rule_set": ["geoip-cn", "geosite-cn"],
-        "outbound": "China"
+        "outbound": "🇨🇳China"
       }
     ],
     "rule_set": [
