@@ -109,9 +109,9 @@
         "🇯🇵Japan",
         "🇺🇸USA",
         "🗺️Others",
-        "📶🤖GPT"
+        "🤖GPT"
       ],
-      "default": "📶🤖GPT"
+      "default": "🤖GPT"
     },
     {
       "tag":"Google",
@@ -123,9 +123,9 @@
         "🇯🇵Japan",
         "🇺🇸USA",
         "🗺️Others",
-        "📶🐲FakeChinaIPs"
+        "🐲FakeChinaIPs"
       ],
-      "default": "📶🐲FakeChinaIPs"
+      "default": "🐲FakeChinaIPs"
     },
     {
       "tag":"Telegram",
@@ -405,7 +405,7 @@
       "tolerance": 50
     },
     {
-      "tag":"📶🐲FakeChinaIPs",
+      "tag":"🐲FakeChinaIPs",
       "type":"urltest",
       "outbounds":[
         "{all}"
@@ -418,7 +418,7 @@
       "tolerance": 50
     },
     {
-      "tag":"📶🤖GPT",
+      "tag":"🤖GPT",
       "type":"urltest",
       "outbounds":[
         "{all}"
