@@ -104,12 +104,12 @@
       "tag":"OpenAI",
       "type":"selector",
       "outbounds":[
-        "📶🤖GPT",
         "🇹🇼TaiWan",
         "🇸🇬Singapore",
         "🇯🇵Japan",
         "🇺🇸USA",
-        "🗺️Others"
+        "🗺️Others",
+        "📶🤖GPT"
       ],
       "default": "📶🤖GPT"
     },
@@ -117,13 +117,13 @@
       "tag":"Google",
       "type":"selector",
       "outbounds":[
-        "📶🐲SendToChina",
         "🇭🇰HongKong",
         "🇹🇼TaiWan",
         "🇸🇬Singapore",
         "🇯🇵Japan",
         "🇺🇸USA",
-        "🗺️Others"
+        "🗺️Others",
+        "📶🐲SendToChina"
       ],
       "default": "📶🐲SendToChina"
     },
@@ -131,13 +131,13 @@
       "tag":"Telegram",
       "type":"selector",
       "outbounds":[
-        "auto",
         "🇭🇰HongKong",
         "🇹🇼TaiWan",
         "🇸🇬Singapore",
         "🇯🇵Japan",
         "🇺🇸USA",
-        "🗺️Others"
+        "🗺️Others",
+        "auto"
       ],
       "default": "auto"
     },
