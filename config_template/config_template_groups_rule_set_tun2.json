@@ -123,9 +123,9 @@
         "🇯🇵Japan",
         "🇺🇸USA",
         "🗺️Others",
-        "📶🐲FakeChinaIP"
+        "📶🐲FakeChinaIPs"
       ],
-      "default": "📶🐲FakeChinaIP"
+      "default": "📶🐲FakeChinaIPs"
     },
     {
       "tag":"Telegram",
@@ -405,7 +405,7 @@
       "tolerance": 50
     },
     {
-      "tag":"📶🐲FakeChinaIP",
+      "tag":"📶🐲FakeChinaIPs",
       "type":"urltest",
       "outbounds":[
         "{all}"
