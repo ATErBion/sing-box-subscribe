@@ -411,7 +411,7 @@
         "{all}"
       ],
       "filter":[
-        {"action":"include","keywords":["(?i)法国hy|香港1号|香港2号|香港-1倍|德国-1倍|法国2|德国-gpt|香港hkt"]}
+        {"action":"include","keywords":["(?i)香港hkt|美国洛杉矶|法国hy|法国2"]}
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -424,7 +424,7 @@
         "{all}"
       ],
       "filter":[
-        {"action":"include","keywords":["(?i)gpt|法国hy|德国-1倍|日本-0.1|法国2|台湾-TK专线"]}
+        {"action":"include","keywords":["(?i)gpt|台湾-TK专线|美国洛杉矶|香港-1倍|德国-1倍|法国hy|美国1号|美国凤凰城-三网|法国2|香港1号|香港2号|日本-0.1"]}
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "10m",
