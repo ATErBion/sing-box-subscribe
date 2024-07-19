@@ -411,7 +411,7 @@
         "{all}"
       ],
       "filter":[
-        {"action":"include","keywords":["(?i)国2|香港hkt|美国洛杉矶"]}
+        {"action":"include","keywords":["(?i)法国2|香港hkt|美国洛杉矶"]}
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -424,7 +424,7 @@
         "{all}"
       ],
       "filter":[
-        {"action":"include","keywords":["(?i)gpt|美国洛杉矶|台湾-TK专线|日本-0.1|香港1号|香港2号|美国1号"]}
+        {"action":"include","keywords":["(?i)gpt|美国洛杉矶|台湾|日本-0.1|香港1号|香港2号|美国1号|法国2"]}
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "10m",
