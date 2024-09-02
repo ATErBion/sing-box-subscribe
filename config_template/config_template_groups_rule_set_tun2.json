@@ -424,7 +424,7 @@
         "{all}"
       ],
       "filter":[
-        {"action":"include","keywords":["(?i)gpt|台湾|法国2|美国凤凰城-三网"]}
+        {"action":"include","keywords":["(?i)gpt|台湾|法国2|美国凤凰城-三网|美国1号"]}
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "10m",
