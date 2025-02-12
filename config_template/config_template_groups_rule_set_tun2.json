@@ -411,7 +411,7 @@
         "{all}"
       ],
       "filter":[
-        {"action":"include","keywords":["(?i)法国2|法国hy|香港hkt"]}
+        {"action":"include","keywords":["(?i)法国2|法国hy|香港hkt|美国1号|美国2号|美国3号|美国4号"]}
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "10m",
