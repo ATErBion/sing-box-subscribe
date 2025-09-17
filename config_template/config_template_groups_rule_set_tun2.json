@@ -115,8 +115,9 @@
         "🇺🇸USA",
         "🗺️Others",
         "🐲FakeChinaIPs"
+        "auto"
       ],
-      "default": "🐲FakeChinaIPs"
+      "default": "auto"
     },
     {
       "tag":"Telegram",
