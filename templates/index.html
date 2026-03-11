@@ -1,61 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Sing-box 订阅转换</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing-box 订阅转换工具</title>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
     <style>
-        body { font-family: sans-serif; background: #f2f2f2; display: flex; justify-content: center; padding-top: 50px; }
-        .container { width: 90%; max-width: 600px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        input, select, button { width: 100%; margin: 10px 0; padding: 10px; box-sizing: border-box; }
-        #result-box { margin-top: 20px; padding: 15px; background: #e8f4fd; border-radius: 5px; display: none; text-align: center; }
-        #final-link { word-break: break-all; cursor: pointer; color: #007bff; font-weight: bold; }
-        #qrcode { margin: 20px auto; width: 200px; height: 200px; }
+        :root { --primary-color: #4a90e2; --bg-color: #f4f7f6; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color); display: flex; justify-content: center; padding: 20px; }
+        
+        /* 响应式容器：手机全宽，电脑限制最大宽度 */
+        .card { width: 100%; max-width: 500px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        h2 { text-align: center; color: #333; margin-top: 0; }
+        input, select, button { width: 100%; margin: 12px 0; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        button { background-color: var(--primary-color); color: white; border: none; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+        button:hover { background-color: #357abd; }
+        
+        /* 结果区域美化 */
+        #result-box { margin-top: 20px; padding: 15px; background: #f9f9f9; border-left: 5px solid var(--primary-color); display: none; }
+        #final-link { font-size: 0.9em; word-break: break-all; cursor: pointer; color: #d63384; padding: 10px; border: 1px dashed #ccc; background: white; }
+        #qrcode { display: block; margin: 15px auto; }
+        
+        /* 说明模块 */
+        .instruction { font-size: 0.85em; color: #666; background: #fff3cd; padding: 10px; border-radius: 5px; margin-top: 20px; line-height: 1.5; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>生成配置转换链接</h2>
-        <input type="text" id="sub-url" placeholder="在此粘贴订阅链接..." required>
-        <select id="template-index">
-            {% for option in template_options %}
-            <option value="{{ loop.index }}">{{ option }}</option>
-            {% endfor %}
-        </select>
-        <button onclick="generateLink()">生成链接并生成二维码</button>
 
-        <div id="result-box">
-            <p>点击下方链接复制，或扫码添加：</p>
-            <div id="final-link" onclick="copyText()"></div>
-            <canvas id="qrcode"></canvas>
-        </div>
+<div class="card">
+    <h2>Sing-box 订阅转换</h2>
+    
+    <input type="text" id="sub-url" placeholder="请粘贴您的订阅链接..." required>
+    
+    <select id="template-index">
+        {% for option in template_options %}
+        <option value="{{ loop.index }}">{{ option }}</option>
+        {% endfor %}
+    </select>
+    
+    <button onclick="generateLink()">生成转换链接</button>
+
+    <div id="result-box">
+        <p style="font-weight: bold; margin: 0;">点击链接可一键复制：</p>
+        <div id="final-link" onclick="copyText()"></div>
+        <canvas id="qrcode"></canvas>
+        <p style="text-align: center; font-size: 0.8em;">手机扫码即可快速导入</p>
     </div>
 
-    <script>
-        function generateLink() {
-            const subUrl = document.getElementById('sub-url').value.trim();
-            const fileIndex = document.getElementById('template-index').value;
-            if (!subUrl) { alert("请输入订阅链接"); return; }
+    <div class="instruction">
+        <strong>使用说明：</strong>
+        <ul>
+            <li>粘贴机场提供的原始订阅链接。</li>
+            <li>选择合适的配置模板（如 TUN 或 Rule-set）。</li>
+            <li>点击生成后，点击链接复制或直接使用手机扫码。</li>
+        </ul>
+    </div>
+</div>
 
-            const finalLink = `https://sb.10101122.xyz/config/${subUrl}&flag=sing-box&file=${fileIndex}`;
-            
-            // 显示链接
-            document.getElementById('final-link').textContent = finalLink;
-            document.getElementById('result-box').style.display = 'block';
-            
-            // 生成二维码
-            QRCode.toCanvas(document.getElementById('qrcode'), finalLink, { width: 200 }, function (error) {
-                if (error) console.error(error);
-            });
-        }
 
-        // 复制功能
-        function copyText() {
-            const text = document.getElementById('final-link').textContent;
-            navigator.clipboard.writeText(text).then(() => {
-                alert("链接已复制到剪贴板！");
-            });
-        }
-    </script>
+
+<script>
+    function generateLink() {
+        const subUrl = document.getElementById('sub-url').value.trim();
+        const fileIndex = document.getElementById('template-index').value;
+        if (!subUrl) { alert("请输入订阅链接"); return; }
+
+        const finalLink = `https://sb.10101122.xyz/config/${subUrl}&flag=sing-box&file=${fileIndex}`;
+        
+        document.getElementById('final-link').textContent = finalLink;
+        document.getElementById('result-box').style.display = 'block';
+        
+        QRCode.toCanvas(document.getElementById('qrcode'), finalLink, { width: 180, margin: 1 }, (err) => {
+            if (err) console.error(err);
+        });
+    }
+
+    function copyText() {
+        const text = document.getElementById('final-link').textContent;
+        navigator.clipboard.writeText(text).then(() => alert("已复制到剪贴板！"));
+    }
+</script>
 </body>
 </html>
