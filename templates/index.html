@@ -2,52 +2,31 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>生成sing-box配置</title>
+    <title>sing-box 配置生成</title>
     <style>
-        body { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: Arial, sans-serif; background-color: #f2f2f2; }
-        .container { display: flex; flex-direction: column; align-items: center; }
-        .config-content { margin-top: 20px; max-width: 600px; }
-        @media screen and (max-width: 768px) { .right-box { width: 100%; } }
+        body { display: flex; justify-content: center; padding-top: 50px; font-family: sans-serif; background: #f2f2f2; }
+        .container { width: 90%; max-width: 600px; background: white; padding: 20px; border-radius: 8px; }
+        textarea { width: 100%; height: 150px; display: block; margin: 10px 0; box-sizing: border-box; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="right-box">
-            <h1>Edit TEMP_JSON_DATA</h1>
-            <form id="temp-json-form" method="POST" action="/edit_temp_json">
-                <textarea name="temp_json_data" rows="10" cols="40" style="width: 400px; height: 400px;">{{ temp_json_data | default('') }}</textarea>
-                <br>
-                <input type="submit" value="保存配置">
-            </form>
-            
-            <form method="POST" action="/generate_config" style="margin-top: 10px;">
-                <select name="template_index">
-                    {% for option in template_options %}
-                    <option value="{{ loop.index - 1 }}">{{ option }}</option>
-                    {% endfor %}
-                </select>
-                <input type="submit" value="选择并生成">
-            </form>
-        </div>
-
-        <div class="config-content">
-            <h3 style="color: red;">使用提示：</h3>
-            <p>1. 填写订阅链接时，确保引号内无换行。</p>
-            <p>2. 点击“保存配置”后，请立即点击“选择并生成”。</p>
-            <pre id="config-text"></pre>
-        </div>
+        <form id="gen-form" method="POST" action="/generate_config">
+            <textarea name="subscription_links" placeholder="在此直接粘贴订阅链接..." required></textarea>
+            <select name="template_index">
+                {% for option in template_options %}<option value="{{ loop.index - 1 }}">{{ option }}</option>{% endfor %}
+            </select>
+            <button type="submit">生成配置</button>
+        </form>
+        <pre id="output"></pre>
     </div>
 
     <script>
-        // 处理保存表单的异步提交，避免页面刷新导致内容重置
-        document.querySelector('#temp-json-form').addEventListener('submit', async (e) => {
+        document.getElementById('gen-form').onsubmit = async (e) => {
             e.preventDefault();
-            const formData = new FormData(e.target);
-            const response = await fetch(e.target.action, { method: 'POST', body: formData });
-            if (response.ok) {
-                document.querySelector('#config-text').textContent = await response.text();
-            }
-        });
+            const res = await fetch(e.target.action, { method: 'POST', body: new FormData(e.target) });
+            document.getElementById('output').textContent = await res.text();
+        };
     </script>
 </body>
 </html>
