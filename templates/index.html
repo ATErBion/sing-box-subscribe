@@ -27,7 +27,7 @@
 <body>
 
 <div class="card">
-    <h2>Sing-box 订阅转换</h2>
+    <h2>Sing-box 订阅配置复写</h2>
     
     <input type="text" id="sub-url" placeholder="请粘贴您的订阅链接..." required>
     
@@ -36,9 +36,9 @@
         <option value="{{ loop.index }}">{{ option }}</option>
         {% endfor %}
     </select>
-    <div class="template-hint">提示：如需实现自动选节点，请务必选择带 '2' 的模板。</div>
+    <div class="template-hint">提示：如需实现自动选节点，方便日常使用，请务必选择第二个模板。</div>
     
-    <button onclick="generateLink()">生成转换链接</button>
+    <button onclick="generateLink()">生成配置复写链接</button>
 
     <div id="result-box">
         <p style="font-weight: bold; margin: 0;">点击链接可一键复制：</p>
@@ -50,9 +50,9 @@
     <div class="instruction">
         <strong>使用说明：</strong>
         <ul style="padding-left: 20px; margin: 5px 0;">
-            <li>粘贴机场提供的原始订阅链接。</li>
+            <li>粘贴机场提供的原始订阅链接点击生成链接即可。</li>
             <li><strong>groups_rule_set_tun.json：</strong> 专为 sing-box 1.8.0+ 设计，支持 TUN 模式。</li>
-            <li><strong>groups_rule_set_tun2.json：</strong> 在上述模板基础上，额外增加了“自动选择”分组功能。</li>
+            <li><strong>groups_rule_set_tun2.json：</strong> 在上述基础上，增加了“自动选择”分组功能。</li>
         </ul>
     </div>
 </div>
