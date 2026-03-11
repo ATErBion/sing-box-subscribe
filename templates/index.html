@@ -6,7 +6,10 @@
     <title>Sing-box 订阅配置复写</title>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
     <style>
-        :root { --primary-color: #2563eb; --bg-color: #f8fafc; }
+        :root { 
+            --ui-color: #475569; /* 修改为 sing-box 风格的石墨灰色 */
+            --bg-color: #f8fafc; 
+        }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: var(--bg-color); display: flex; justify-content: center; padding: 20px; margin: 0; }
         
         .card { width: 100%; max-width: 500px; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
@@ -14,17 +17,22 @@
         .header-logo { width: 32px; height: 32px; }
 
         input, select, button { width: 100%; margin: 12px 0; padding: 14px; border: 1px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; }
-        button { background-color: var(--primary-color); color: white; border: none; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-        button:hover { background-color: #1d4ed8; }
+        
+        /* 按钮改为灰色调，沉稳不刺眼 */
+        button { background-color: var(--ui-color); color: white; border: none; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        button:hover { background-color: #334155; }
         
         /* 结果区域样式 */
         #result-box { margin-top: 25px; padding: 20px; background: #f8fafc; border-radius: 12px; display: none; border: 1px solid #e2e8f0; }
         .success-title { color: #059669; font-weight: 800; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 1rem; }
-        #final-link { font-size: 0.85rem; word-break: break-all; cursor: pointer; color: #2563eb; padding: 14px; border: 2px dashed #cbd5e1; background: white; border-radius: 8px; margin: 10px 0; transition: border-color 0.2s; }
-        #final-link:hover { border-color: var(--primary-color); }
+        
+        /* 链接框交互优化 */
+        #final-link { font-size: 0.85rem; word-break: break-all; cursor: pointer; color: var(--ui-color); padding: 14px; border: 2px dashed #cbd5e1; background: white; border-radius: 8px; margin: 10px 0; transition: border-color 0.2s; }
+        #final-link:hover { border-color: var(--ui-color); }
+        
         #qrcode { display: block; margin: 15px auto; background: white; padding: 5px; border-radius: 8px; }
         .scan-hint { text-align: center; font-size: 0.85rem; color: #475569; margin-top: 10px; font-weight: 500; }
-        .scan-hint span { color: var(--primary-color); font-weight: bold; }
+        .scan-hint span { color: var(--ui-color); font-weight: bold; }
         
         .instruction { font-size: 0.85rem; color: #475569; background: #fffbeb; padding: 15px; border-radius: 8px; margin-top: 25px; border-left: 4px solid #f59e0b; }
         .template-hint { font-size: 0.75rem; color: #64748b; text-align: center; margin-top: -5px; margin-bottom: 10px; }
@@ -49,20 +57,20 @@
     </select>
     <div class="template-hint">💡 建议：如需自动测速及负载均衡，请优先选择文件名带 “auto” 的模板。</div>
     
-    <button onclick="generateLink()">生成复写订阅链接</button>
+    <button onclick="generateLink()">生成配置复写订阅链接</button>
 
     <div id="result-box">
         <div class="success-title">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            配置复写链接生成成功！
+            复写配置链接生成成功！
         </div>
-        <p style="margin: 0 0 5px 0; font-size: 0.85rem; color: #64748b;">👉 点击下方链接即可复制使用：</p>
+        <p style="margin: 0 0 5px 0; font-size: 0.85rem; color: #64748b;">👉 点击下方链接即可复制：</p>
         <div id="final-link" onclick="copyText()" title="点击此处一键复制"></div>
         
         <canvas id="qrcode"></canvas>
         
         <div class="scan-hint">
-            📱 或使用 <span> APP</span> 扫描上方二维码导入
+            📱 或使用 <span>APP</span> 扫描上方二维码导入
         </div>
     </div>
 
@@ -70,8 +78,8 @@
         <strong>配置说明：</strong>
         <ul style="padding-left: 18px; margin: 8px 0 0 0;">
             <li>粘贴机场订阅链接，选择对应模板并生成。</li>
-            <li><strong>普通模板：</strong> 继承分组，手动切换节点，支持 sing-box TUN 模式。</li>
-            <li><strong>带有 “auto” 的模板：</strong> 分组启用 URL-test 自动测速，自动选择最佳节点。</li>
+            <li><strong>普通模板：</strong> 手动切换节点，支持 sing-box TUN 模式。</li>
+            <li><strong>带有 “auto” 的模板：</strong> 集成 URL-test 自动测速，自动选择最佳节点。</li>
         </ul>
     </div>
 
