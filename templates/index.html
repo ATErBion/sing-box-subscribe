@@ -35,7 +35,7 @@
 <div class="card">
     <h2>
         <img src="https://sing-box.sagernet.org/assets/icon.svg" alt="Logo" class="header-logo">
-        Sing-box 订阅复写
+        Sing-box 配置复写
     </h2>
     
     <input type="text" id="sub-url" placeholder="请粘贴您的机场订阅链接..." required>
@@ -47,13 +47,13 @@
     </select>
     <div class="template-hint">💡 建议：如需自动测速及负载均衡，请优先选择文件名带 “auto” 的模板。</div>
     
-    <button onclick="generateLink()">生成复写地址</button>
+    <button onclick="generateLink()">生成配置复写订阅地址</button>
 
     <div id="result-box">
         <p style="font-weight: 600; margin: 0 0 8px 0; font-size: 0.9rem;">✅ 转换成功：</p>
         <div id="final-link" onclick="copyText()" title="点击复制"></div>
         <canvas id="qrcode"></canvas>
-        <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin: 0;">点击链接复制，或使用软件扫描二维码导入</p>
+        <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin: 0;">点击链接复制粘贴使用，或使用软件扫描二维码导入</p>
     </div>
 
     <div class="instruction">
