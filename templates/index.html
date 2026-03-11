@@ -2,52 +2,45 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Sing-box 配置生成</title>
+    <title>Sing-box 订阅转换</title>
     <style>
         body { font-family: sans-serif; background: #f2f2f2; display: flex; justify-content: center; padding-top: 50px; }
         .container { width: 90%; max-width: 600px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         input, select, button { width: 100%; margin: 10px 0; padding: 10px; box-sizing: border-box; }
-        #result-box { margin-top: 20px; padding: 15px; background: #e8f4fd; word-break: break-all; display: none; }
+        #result-box { margin-top: 20px; padding: 15px; background: #e8f4fd; border-radius: 5px; word-break: break-all; display: none; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>生成订阅链接</h2>
-        <input type="text" id="base-url" value="https://sb.10101122.xyz/config/" readonly>
-        
-        <input type="text" id="sub-url" placeholder="请输入订阅链接" required>
+        <h2>生成配置转换链接</h2>
+        <input type="text" id="sub-url" placeholder="在此粘贴订阅链接..." required>
         
         <select id="template-index">
             {% for option in template_options %}
-            <option value="{{ loop.index - 1 }}">{{ option }}</option>
+            <option value="{{ loop.index }}">{{ option }}</option>
             {% endfor %}
         </select>
         
-        <button onclick="generateLink()">生成链接</button>
+        <button onclick="generateLink()">生成转换链接</button>
 
         <div id="result-box">
-            <strong>生成的链接：</strong>
+            <strong>生成的完整链接：</strong>
             <p id="final-link"></p>
         </div>
     </div>
 
     <script>
         function generateLink() {
-            const baseUrl = document.getElementById('base-url').value;
-            const subUrl = document.getElementById('sub-url').value;
+            const subUrl = document.getElementById('sub-url').value.trim();
             const fileIndex = document.getElementById('template-index').value;
             
             if (!subUrl) { alert("请输入订阅链接"); return; }
 
-            // 拼接逻辑
-            const finalLink = `${baseUrl}${subUrl}&flag=sing-box&file=${fileIndex}`;
+            // 拼接规则：https://sb.10101122.xyz/config/ + [用户输入] + &flag=sing-box&file=[序号]
+            const finalLink = `https://sb.10101122.xyz/config/${subUrl}&flag=sing-box&file=${fileIndex}`;
             
-            // 显示结果
-            const resultBox = document.getElementById('result-box');
-            const linkText = document.getElementById('final-link');
-            
-            linkText.textContent = finalLink;
-            resultBox.style.display = 'block';
+            document.getElementById('final-link').textContent = finalLink;
+            document.getElementById('result-box').style.display = 'block';
         }
     </script>
 </body>
