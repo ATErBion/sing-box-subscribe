@@ -1,3 +1,19 @@
+<div class="card">
+    <h2 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7v10l10 5 10-5V7L12 2z"></path>
+            <path d="M12 22v-9"></path>
+            <path d="M12 13l9-5"></path>
+            <path d="M12 13l-9-5"></path>
+        </svg>
+        Sing-box 订阅复写
+    </h2>
+    
+    ```
+
+### 完整代码集成：
+
+```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -10,7 +26,7 @@
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: var(--bg-color); display: flex; justify-content: center; padding: 20px; margin: 0; }
         
         .card { width: 100%; max-width: 500px; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        h2 { text-align: center; color: #0f172a; margin-top: 0; font-size: 1.5rem; }
+        h2 { text-align: center; color: #0f172a; margin-top: 0; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 10px; }
         
         input, select, button { width: 100%; margin: 12px 0; padding: 14px; border: 1px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; }
         button { background-color: var(--primary-color); color: white; border: none; font-weight: 600; cursor: pointer; transition: all 0.2s; }
@@ -22,12 +38,23 @@
         
         .instruction { font-size: 0.85rem; color: #475569; background: #fffbeb; padding: 15px; border-radius: 8px; margin-top: 25px; border-left: 4px solid #f59e0b; }
         .template-hint { font-size: 0.75rem; color: #64748b; text-align: center; margin-top: -5px; margin-bottom: 10px; }
+        
+        .footer { text-align: center; font-size: 0.75rem; color: #94a3b8; margin-top: 20px; }
+        .footer a { color: #64748b; text-decoration: none; }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <h2>Sing-box 订阅复写</h2>
+    <h2>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7v10l10 5 10-5V7L12 2z"></path>
+            <path d="M12 22v-9"></path>
+            <path d="M12 13l9-5"></path>
+            <path d="M12 13l-9-5"></path>
+        </svg>
+        Sing-box 订阅复写
+    </h2>
     
     <input type="text" id="sub-url" placeholder="请粘贴您的机场订阅链接..." required>
     
@@ -54,6 +81,10 @@
             <li><strong>普通模板：</strong> 手动切换节点，支持 sing-box TUN 模式。</li>
             <li><strong>带有 “auto” 的模板：</strong> 集成 URL-test 自动测速，自动选择最佳节点。</li>
         </ul>
+    </div>
+
+    <div class="footer">
+        Powered by <a href="https://github.com/Toperlock/sing-box-subscribe" target="_blank">Toperlock/sing-box-subscribe</a>
     </div>
 </div>
 
