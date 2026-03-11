@@ -49,14 +49,14 @@
     </select>
     <div class="template-hint">💡 建议：如需自动测速及负载均衡，请优先选择文件名带 “auto” 的模板。</div>
     
-    <button onclick="generateLink()">生成配置复写订阅地址</button>
+    <button onclick="generateLink()">生成复写订阅链接</button>
 
     <div id="result-box">
         <div class="success-title">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            配置生成成功！
+            配置复写链接生成成功！
         </div>
-        <p style="margin: 0 0 5px 0; font-size: 0.85rem; color: #64748b;">👉 点击下方链接即可复制：</p>
+        <p style="margin: 0 0 5px 0; font-size: 0.85rem; color: #64748b;">👉 点击下方链接即可复制使用：</p>
         <div id="final-link" onclick="copyText()" title="点击此处一键复制"></div>
         
         <canvas id="qrcode"></canvas>
