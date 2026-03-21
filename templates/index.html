@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sing-box 订阅配置复写</title>
+    <title>Sing-box 订阅配置覆写</title>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
     <style>
         :root { 
@@ -45,7 +45,7 @@
 <div class="card">
     <h2>
         <img src="https://sing-box.sagernet.org/assets/icon.svg" alt="Logo" class="header-logo">
-        Sing-box 配置复写
+        Sing-box 配置覆写
     </h2>
     
     <input type="text" id="sub-url" placeholder="请粘贴您的机场订阅链接..." required>
@@ -57,12 +57,12 @@
     </select>
     <div class="template-hint">💡 建议：如需自动测速及负载均衡，请优先选择文件名带 “auto” 的模板。</div>
     
-    <button onclick="generateLink()">生成配置复写订阅链接</button>
+    <button onclick="generateLink()">生成配置覆写订阅链接</button>
 
     <div id="result-box">
         <div class="success-title">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            复写配置链接生成成功！
+            覆写配置链接生成成功！
         </div>
         <p style="margin: 0 0 5px 0; font-size: 0.85rem; color: #64748b;">👉 点击下方链接即可复制：</p>
         <div id="final-link" onclick="copyText()" title="点击此处一键复制"></div>
